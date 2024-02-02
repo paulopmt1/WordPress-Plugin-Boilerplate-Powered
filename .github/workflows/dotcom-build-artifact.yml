@@ -9,6 +9,9 @@ jobs:
   Build-Artifact-Action:
     name: Build-Artifact-Action
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./plugin-name
     steps:
     - uses: actions/checkout@master
       with:
@@ -17,20 +20,17 @@ jobs:
 
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
-      working-directory: ./plugin-name
       with:
         dev: no
         php_version: 8.1
 
     - name: Setup node 20
       uses: actions/setup-node@v4
-      working-directory: ./plugin-name
       with:
         node-version: 20
 
     - name: Upload the artifact
       uses: actions/upload-artifact@v4
-      working-directory: ./plugin-name
       with:
         name: repository-artifact
         path: |
