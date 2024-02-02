@@ -6,7 +6,7 @@ on:
       - trunk
   workflow_dispatch:
 jobs:
-  Get-PluginSource:
+  Build-Artifact-Action:
     name: Build-Artifact-Action
     runs-on: ubuntu-latest
     steps:
@@ -14,13 +14,9 @@ jobs:
       with:
         submodules: true
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-  Build-Artifact-Action:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./plugin-name
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
+      working-directory: ./plugin-name
       with:
         dev: no
         php_version: 8.1
