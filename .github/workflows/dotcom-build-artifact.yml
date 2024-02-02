@@ -6,18 +6,19 @@ on:
       - trunk
   workflow_dispatch:
 jobs:
-  Build-Artifact-Action:
+  Get-PluginSource:
     name: Build-Artifact-Action
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./plugin-name
     steps:
     - uses: actions/checkout@master
       with:
         submodules: true
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+  Build-Artifact-Action:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./plugin-name
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
       with:
