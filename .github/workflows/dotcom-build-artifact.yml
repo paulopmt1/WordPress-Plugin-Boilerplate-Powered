@@ -17,32 +17,35 @@ jobs:
 
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
+      working-directory: ./plugin-name
       with:
         dev: no
         php_version: 8.1
 
     - name: Setup node 20
       uses: actions/setup-node@v4
+      working-directory: ./plugin-name
       with:
         node-version: 20
 
     - name: Upload the artifact
       uses: actions/upload-artifact@v4
+      working-directory: ./plugin-name
       with:
         name: repository-artifact
         path: |
-          ./plugin-name/
-          ./plugin-name/!.DS_Store
-          ./plugin-name/!.git 
-          ./plugin-name/!.gitattributes 
-          ./plugin-name/!.github 
-          ./plugin-name/!.gitignore 
-          ./plugin-name/!.editorconfig.json 
-          ./plugin-name/!README.md 
-          ./plugin-name/!composer.lock 
-          ./plugin-name/!package-lock.json 
-          ./plugin-name/!package.json 
-          ./plugin-name/!travis.yml 
-          ./plugin-name/!phpcs.xml.dist 
-          ./plugin-name/!node_modules 
-          ./plugin-name/!yarn.lock
+          .
+          !.DS_Store
+          !.git 
+          !.gitattributes 
+          !.github 
+          !.gitignore 
+          !.editorconfig.json 
+          !README.md 
+          !composer.lock 
+          !package-lock.json 
+          !package.json 
+          !travis.yml 
+          !phpcs.xml.dist 
+          !node_modules 
+          !yarn.lock
