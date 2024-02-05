@@ -21,6 +21,9 @@ jobs:
         php-version: '8.1'
         extension-csv: intl
 
+    - name: Install php-intl
+      run: sudo apt install php{$php-version}-intl -y
+
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
       with:
