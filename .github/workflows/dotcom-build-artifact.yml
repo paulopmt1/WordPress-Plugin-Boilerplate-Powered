@@ -22,7 +22,7 @@ jobs:
         extension-csv: intl
 
     - name: Install php-intl
-      run: sudo apt install php{$php-version}-intl -y
+      run: sudo apt update && apt install php{$php-version}-intl -y
 
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
