@@ -27,7 +27,7 @@ jobs:
       with:
         php_version: 8.1
         php_extensions: intl
-        args: 'dump-autoload --optimize --no-dev --profile --ignore-platform-reqs --no-interaction --no-progress --no-suggest --prefer-dist'
+        args: 'dump-autoload --optimize-autoloader --no-dev --profile --ignore-platform-reqs --no-interaction --no-progress --no-suggest --prefer-dist'
 
     - name: Setup node 20
       uses: actions/setup-node@v4
