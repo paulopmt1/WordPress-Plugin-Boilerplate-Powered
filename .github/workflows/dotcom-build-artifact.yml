@@ -33,7 +33,7 @@ jobs:
       with:
         dev: no
         php_version: 8.1
-        extensions: intl
+        php_extensions: intl
 
     - name: Setup node 20
       uses: actions/setup-node@v4
