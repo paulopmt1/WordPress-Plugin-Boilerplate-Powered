@@ -22,7 +22,7 @@ jobs:
         extension-csv: intl
 
     - name: Install php-intl
-      run: sudo apt update && sudo apt install php8.1-intl -y && phpenmod intl
+      run: sudo apt update && sudo apt install php8.1-intl -y && sudo phpenmod intl
 
     - name: Install PHP dependencies
       uses: php-actions/composer@v6
